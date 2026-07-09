@@ -3,302 +3,390 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ExportHub — Global Trade, Reimagined</title>
-  <meta name="description" content="ExportHub connects manufacturers with global buyers. Premium import/export services across 150+ countries."/>
+  <title>ExportHub — India's Premier Export Partner</title>
+  <meta name="description" content="ExportHub connects Indian manufacturers with global buyers. Premium quality products, reliable logistics, and end-to-end export services across 50+ countries."/>
+  <meta property="og:title" content="ExportHub — India's Premier Export Partner"/>
+  <meta property="og:description" content="Connecting Indian manufacturers with global buyers. Quality products, managed logistics, complete documentation."/>
+  <meta property="og:type" content="website"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo">
-    <div class="logo-icon">⬡</div>
-    <span>Export<strong>Hub</strong></span>
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo" aria-label="ExportHub Home">Export<span>Hub</span></a>
+    <ul class="nav-links">
+      <li><a href="#categories">Products</a></li>
+      <li><a href="#global-reach">Global Reach</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#assistant">Trade Assistant</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-primary nav-cta-btn">Get a Quote</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <ul class="nav-links">
-    <li><a href="#trade-network">Network</a></li>
-    <li><a href="#warehouse">Products</a></li>
-    <li><a href="#logistics">Logistics</a></li>
-    <li><a href="#ai-assistant">AI Assistant</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Get Quote</a>
-  <div class="nav-hamburger" id="hamburger">&#9776;</div>
 </nav>
 
-<!-- S1: HERO -->
-<section id="hero">
-  <canvas id="globe-canvas"></canvas>
-  <div class="hero-content">
-    <div class="hero-badge">🌐 Trusted by 2,000+ Global Buyers</div>
-    <h1>Global Trade<br/><span class="gradient-text">Starts Here</span></h1>
-    <p>India's premier export platform connecting manufacturers with worldwide markets across 150+ countries.</p>
-    <div class="hero-buttons">
-      <button class="btn-primary" onclick="scrollTo('#warehouse')">Explore Products</button>
-      <button class="btn-outline" onclick="scrollTo('#trade-network')">Become a Buyer</button>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Request Quote</button>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num">150+</span><span class="stat-label">Countries</span></div>
-      <div class="stat"><span class="stat-num">5000+</span><span class="stat-label">Products</span></div>
-      <div class="stat"><span class="stat-num">98%</span><span class="stat-label">Satisfaction</span></div>
-    </div>
-  </div>
-  <div class="scroll-indicator">
-    <div class="scroll-dot"></div>
-    <span>Scroll to explore</span>
-  </div>
-</section>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+  <button class="mobile-close" id="mobile-close" aria-label="Close menu">×</button>
+  <ul class="mobile-links">
+    <li><a href="#categories">Products</a></li>
+    <li><a href="#global-reach">Global Reach</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#assistant">Trade Assistant</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="btn-primary btn-lg">Get a Quote</a></li>
+  </ul>
+</div>
 
-<!-- S2: TRADE NETWORK -->
-<section id="trade-network">
-  <div class="section-header">
-    <div class="section-badge">Trade Network</div>
-    <h2>India's Export <span class="gradient-text">Corridors</span></h2>
-    <p>Click a destination to explore trade details</p>
-  </div>
-  <div class="network-container">
-    <canvas id="network-canvas"></canvas>
-    <div class="country-cards" id="country-cards">
-      <!-- Injected by JS -->
-    </div>
-  </div>
-  <div class="country-detail-panel" id="country-panel">
-    <div class="panel-close" onclick="closePanel()">✕</div>
-    <div id="panel-content"></div>
-  </div>
-</section>
+<main id="main">
 
-<!-- S3: CONTAINER PORT -->
-<section id="port">
-  <div class="section-header">
-    <div class="section-badge">Container Port</div>
-    <h2>World-Class <span class="gradient-text">Port Operations</span></h2>
-    <p>Watch cargo move from warehouse to ship</p>
-  </div>
-  <div class="port-scene-wrapper">
-    <canvas id="port-canvas"></canvas>
-    <div class="port-overlay">
-      <div class="port-stat-card">🏗️ <strong>48</strong> Cranes Active</div>
-      <div class="port-stat-card">🚢 <strong>12</strong> Ships in Port</div>
-      <div class="port-stat-card">📦 <strong>1.2M</strong> TEU Capacity</div>
-    </div>
-  </div>
-</section>
-
-<!-- S4: WAREHOUSE -->
-<section id="warehouse">
-  <div class="section-header">
-    <div class="section-badge">Product Categories</div>
-    <h2>Our <span class="gradient-text">Warehouse</span></h2>
-    <p>Browse categories — click a shelf to explore</p>
-  </div>
-  <div class="warehouse-scene">
-    <canvas id="warehouse-canvas"></canvas>
-    <div class="shelf-grid" id="shelf-grid">
-      <!-- Injected by JS -->
-    </div>
-  </div>
-</section>
-
-<!-- S5: PRODUCT VIEWER -->
-<section id="product-viewer">
-  <div class="section-header">
-    <div class="section-badge">360° Product Viewer</div>
-    <h2>Inspect Every <span class="gradient-text">Product</span></h2>
-    <p>Rotate, zoom, and download specifications</p>
-  </div>
-  <div class="product-viewer-layout">
-    <div class="product-list" id="product-list"></div>
-    <div class="viewer-3d-area">
-      <canvas id="product-canvas"></canvas>
-      <div class="viewer-controls">
-        <button class="ctrl-btn" id="btn-rotate">↺ Auto Rotate</button>
-        <button class="ctrl-btn" id="btn-zoom-in">＋ Zoom In</button>
-        <button class="ctrl-btn" id="btn-zoom-out">－ Zoom Out</button>
-        <button class="ctrl-btn" id="btn-spec">⬇ Specifications</button>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container hero-inner">
+      <p class="label">India's Premier Export Partner</p>
+      <h1 class="display-xl">Connecting Indian<br>Excellence to the World</h1>
+      <p class="hero-sub">We source, verify, and ship premium products from India's finest manufacturers to buyers across 50+ countries. Quality assured, documentation handled, logistics managed.</p>
+      <div class="hero-actions">
+        <a href="#categories" class="btn-primary btn-lg">Explore Products</a>
+        <a href="#contact" class="btn-outline btn-lg">Request a Quote</a>
       </div>
     </div>
-    <div class="product-info-panel" id="product-info"></div>
-  </div>
-</section>
+  </section>
 
-<!-- S6: LOGISTICS JOURNEY -->
-<section id="logistics">
-  <div class="section-header">
-    <div class="section-badge">Logistics Journey</div>
-    <h2>Track Your <span class="gradient-text">Shipment</span></h2>
-    <p>Follow every step of your cargo's journey</p>
-  </div>
-  <div class="logistics-timeline" id="logistics-timeline">
-    <!-- Steps injected by JS -->
-  </div>
-  <div class="logistics-canvas-wrap">
-    <canvas id="logistics-canvas"></canvas>
-  </div>
-</section>
-
-<!-- S7: AI ASSISTANT -->
-<section id="ai-assistant">
-  <div class="section-header">
-    <div class="section-badge">AI-Powered</div>
-    <h2>Export <span class="gradient-text">AI Assistant</span></h2>
-    <p>Ask anything about global trade</p>
-  </div>
-  <div class="ai-layout">
-    <div class="ai-hologram">
-      <canvas id="ai-canvas"></canvas>
-      <div class="ai-ring ai-ring-1"></div>
-      <div class="ai-ring ai-ring-2"></div>
-      <div class="ai-ring ai-ring-3"></div>
-      <div class="ai-avatar">🤖</div>
-    </div>
-    <div class="ai-chat-area">
-      <div class="ai-suggestions">
-        <div class="suggestion-chip" onclick="askAI(this)">Can I export surgical gloves to Russia?</div>
-        <div class="suggestion-chip" onclick="askAI(this)">What's the HS Code for Basmati rice?</div>
-        <div class="suggestion-chip" onclick="askAI(this)">Generate a quotation for 500 units</div>
-        <div class="suggestion-chip" onclick="askAI(this)">Shipping cost from Mumbai to Dubai?</div>
+  <!-- TRUST BAR -->
+  <section id="trust-bar">
+    <div class="container trust-inner">
+      <div class="trust-item">
+        <span class="trust-number">12+</span>
+        <span class="trust-label">Years in Export</span>
       </div>
-      <div class="chat-window" id="chat-window">
-        <div class="chat-msg ai-msg">
-          <div class="msg-avatar">🤖</div>
-          <div class="msg-text">Hello! I'm your ExportHub AI Assistant. Ask me anything about export regulations, HS codes, quotations, or logistics!</div>
+      <div class="trust-item">
+        <span class="trust-number">50+</span>
+        <span class="trust-label">Countries Served</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-number">500+</span>
+        <span class="trust-label">Products Available</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-number">200+</span>
+        <span class="trust-label">Active Buyers</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories">
+    <div class="container">
+      <p class="label">Our Export Portfolio</p>
+      <h2>Product Categories</h2>
+      <p class="section-sub">We source and export across five core verticals, each backed by verified manufacturers and rigorous quality control.</p>
+      <div class="categories-grid" id="categories-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL REACH -->
+  <section id="global-reach" class="section-alt">
+    <div class="container">
+      <p class="label">Global Trade Network</p>
+      <h2>Where We Export</h2>
+      <p class="section-sub">Active trade corridors from India to major markets worldwide. Click a destination to explore route details.</p>
+      <div class="map-container" id="map-container">
+        <!-- SVG rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why-us">
+    <div class="container">
+      <p class="label">Why ExportHub</p>
+      <h2>Built for International Buyers</h2>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="why-icon">🔍</div>
+          <h3>Verified Sourcing</h3>
+          <p>Every manufacturer in our network is personally audited. We verify production capacity, quality systems, and export readiness before any partnership.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon">📋</div>
+          <h3>Complete Documentation</h3>
+          <p>From commercial invoices to certificates of origin, phytosanitary certificates to customs declarations — we handle the full documentation chain.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon">🔬</div>
+          <h3>Quality Assurance</h3>
+          <p>Pre-shipment inspection, third-party lab testing, and compliance verification with destination country standards. No compromises.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon">🚢</div>
+          <h3>End-to-End Logistics</h3>
+          <p>FCL and LCL shipping, freight forwarding, customs clearance, and real-time shipment tracking from Indian ports to your doorstep.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon">💬</div>
+          <h3>Dedicated Buyer Support</h3>
+          <p>A single point of contact for your entire export journey. Responsive communication across time zones, transparent pricing, flexible payment terms.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon">📜</div>
+          <h3>Regulatory Compliance</h3>
+          <p>We stay current with international trade regulations, HS codes, sanctions lists, and import requirements so you don't have to.</p>
         </div>
       </div>
-      <div class="chat-input-row">
-        <input type="text" id="chat-input" placeholder="Ask about exports, HS codes, regulations..." />
-        <button onclick="sendChat()" class="send-btn">➤</button>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="section-alt">
+    <div class="container">
+      <p class="label">How It Works</p>
+      <h2>Your Export Journey</h2>
+      <p class="section-sub">From initial inquiry to delivered goods — a transparent, managed process at every stage.</p>
+      <div class="process-steps" id="process-steps">
+        <!-- Rendered by JS -->
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- S8: STATS -->
-<section id="stats">
-  <div class="section-header">
-    <div class="section-badge">By the Numbers</div>
-    <h2>ExportHub <span class="gradient-text">at Scale</span></h2>
-  </div>
-  <div class="stats-grid" id="stats-grid">
-    <div class="stat-card" data-target="150" data-suffix="+">
-      <div class="stat-icon">🌍</div>
-      <div class="stat-number" id="s1">0</div>
-      <div class="stat-label">Countries Served</div>
-    </div>
-    <div class="stat-card" data-target="5000" data-suffix="+">
-      <div class="stat-icon">📦</div>
-      <div class="stat-number" id="s2">0</div>
-      <div class="stat-label">Products Listed</div>
-    </div>
-    <div class="stat-card" data-target="800" data-suffix="+">
-      <div class="stat-icon">🏭</div>
-      <div class="stat-number" id="s3">0</div>
-      <div class="stat-label">Manufacturers</div>
-    </div>
-    <div class="stat-card" data-target="50000" data-suffix="+">
-      <div class="stat-icon">🚢</div>
-      <div class="stat-number" id="s4">0</div>
-      <div class="stat-label">Shipments</div>
-    </div>
-    <div class="stat-card" data-target="2000" data-suffix="+">
-      <div class="stat-icon">😊</div>
-      <div class="stat-number" id="s5">0</div>
-      <div class="stat-label">Satisfied Buyers</div>
-    </div>
-  </div>
-</section>
-
-<!-- S9: TESTIMONIALS -->
-<section id="testimonials">
-  <div class="section-header">
-    <div class="section-badge">Client Stories</div>
-    <h2>What Buyers <span class="gradient-text">Say</span></h2>
-  </div>
-  <div class="testimonials-track-wrap">
-    <div class="testimonials-track" id="testimonials-track">
-      <!-- Injected by JS -->
-    </div>
-  </div>
-  <div class="testimonial-controls">
-    <button class="tctl-btn" onclick="prevTestimonial()">◀</button>
-    <div class="tctl-dots" id="tctl-dots"></div>
-    <button class="tctl-btn" onclick="nextTestimonial()">▶</button>
-  </div>
-</section>
-
-<!-- S10: CONTACT -->
-<section id="contact">
-  <div class="section-header">
-    <div class="section-badge">Get in Touch</div>
-    <h2>Start Your <span class="gradient-text">Export Journey</span></h2>
-  </div>
-  <div class="contact-layout">
-    <div class="contact-globe-wrap">
-      <canvas id="contact-canvas"></canvas>
-      <div class="india-marker">
-        <div class="marker-pulse"></div>
-        <div class="marker-label">ExportHub HQ<br/>Mumbai, India</div>
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="container">
+      <p class="label">Featured Products</p>
+      <h2>Export-Ready Products</h2>
+      <p class="section-sub">A selection from our catalog. All products available with custom packaging, labeling, and documentation for your market.</p>
+      <div class="products-grid" id="products-grid">
+        <!-- Rendered by JS -->
       </div>
     </div>
-    <div class="contact-form-wrap">
-      <form class="contact-form" id="contact-form" onsubmit="submitForm(event)">
-        <h3>Request a Free Quote</h3>
-        <div class="form-group">
-          <input type="text" placeholder="Your Name" required/>
-          <input type="email" placeholder="Business Email" required/>
+  </section>
+
+  <!-- AI ASSISTANT -->
+  <section id="assistant" class="section-dark">
+    <div class="container">
+      <div class="assistant-layout">
+        <div class="assistant-intro">
+          <p class="label">Trade Intelligence</p>
+          <h2>Export Assistant</h2>
+          <p>Get instant answers about export regulations, HS codes, shipping costs, and documentation requirements. Our trade intelligence tool helps you make informed decisions.</p>
+          <div class="assistant-suggestions" id="assistant-suggestions">
+            <!-- Rendered by JS -->
+          </div>
         </div>
-        <div class="form-group">
-          <input type="text" placeholder="Company Name" required/>
-          <select required>
-            <option value="">Select Country</option>
-            <option>Russia</option><option>UAE</option><option>Germany</option>
-            <option>USA</option><option>Brazil</option><option>Japan</option>
-            <option>Other</option>
-          </select>
+        <div class="assistant-chat">
+          <div class="chat-window" id="chat-window">
+            <div class="chat-msg ai-msg">
+              <div class="msg-label">ExportHub Assistant</div>
+              <div class="msg-text">Hello! I can help you with export regulations, HS codes, shipping estimates, and documentation requirements. What would you like to know?</div>
+            </div>
+          </div>
+          <div class="chat-input-row">
+            <input type="text" id="chat-input" placeholder="Ask about exports, HS codes, regulations..." aria-label="Chat message input"/>
+            <button id="chat-send" class="chat-send-btn" aria-label="Send message">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+            </button>
+          </div>
         </div>
-        <div class="form-group single">
-          <select required>
-            <option value="">Product Category</option>
-            <option>Medical Supplies</option><option>Food & Beverages</option>
-            <option>Agriculture</option><option>Industrial</option><option>Electronics</option>
-          </select>
-        </div>
-        <div class="form-group single">
-          <textarea placeholder="Describe your requirements..." rows="4"></textarea>
-        </div>
-        <button type="submit" class="btn-primary full">Send Inquiry →</button>
-      </form>
-      <div class="contact-info">
-        <div class="contact-info-item">📧 trade@exporthub.in</div>
-        <div class="contact-info-item">📞 +91 22 4000 0000</div>
-        <div class="contact-info-item">📍 BKC, Mumbai 400051</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-grid" id="stats-grid">
+        <div class="stat-item" data-target="50" data-suffix="+">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+        <div class="stat-item" data-target="500" data-suffix="+">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Products Available</div>
+        </div>
+        <div class="stat-item" data-target="200" data-suffix="+">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Active Buyers</div>
+        </div>
+        <div class="stat-item" data-target="12" data-suffix="+">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section-alt">
+    <div class="container">
+      <p class="label">Client Feedback</p>
+      <h2>What Our Buyers Say</h2>
+      <div class="testimonials-wrap">
+        <div class="testimonials-track" id="testimonials-track">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+      <div class="testimonial-controls">
+        <button class="tctl-btn" id="t-prev" aria-label="Previous testimonial">←</button>
+        <div class="tctl-dots" id="tctl-dots"></div>
+        <button class="tctl-btn" id="t-next" aria-label="Next testimonial">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="section-cta">
+    <div class="container" style="text-align:center">
+      <h2 class="display-lg" style="color:#fff">Ready to Source<br>from India?</h2>
+      <p style="color:rgba(255,255,255,0.7);max-width:500px;margin:var(--space-lg) auto var(--space-xl)">Tell us what you need. We'll identify the right suppliers, handle documentation, and manage logistics from factory to your warehouse.</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn-primary btn-lg">Start Your Inquiry</a>
+        <a href="#categories" class="btn-outline btn-lg" style="border-color:rgba(255,255,255,0.3);color:#fff">Browse Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <p class="label">Get in Touch</p>
+          <h2>Start Your Export Journey</h2>
+          <p>Whether you need a single product quotation or want to establish a long-term supply partnership, our export team is ready to assist.</p>
+          <div class="contact-details">
+            <div class="contact-detail-item">
+              <strong>Email</strong>
+              <span>trade@exporthub.in</span>
+            </div>
+            <div class="contact-detail-item">
+              <strong>Phone</strong>
+              <span>+91 22 4000 0000</span>
+            </div>
+            <div class="contact-detail-item">
+              <strong>Office</strong>
+              <span>Bandra Kurla Complex<br>Mumbai 400051, India</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contact-form" novalidate>
+            <h3>Request a Quote</h3>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="f-name">Full Name *</label>
+                <input type="text" id="f-name" required/>
+              </div>
+              <div class="form-field">
+                <label for="f-email">Business Email *</label>
+                <input type="email" id="f-email" required/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="f-company">Company Name *</label>
+                <input type="text" id="f-company" required/>
+              </div>
+              <div class="form-field">
+                <label for="f-country">Country *</label>
+                <select id="f-country" required>
+                  <option value="">Select your country</option>
+                  <option>Russia</option><option>UAE</option><option>Germany</option>
+                  <option>USA</option><option>Brazil</option><option>Japan</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="f-category">Product Category</label>
+              <select id="f-category">
+                <option value="">Select a category</option>
+                <option>Medical Supplies</option><option>Food &amp; Beverages</option>
+                <option>Agriculture</option><option>Industrial</option><option>Electronics</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="f-message">Requirements</label>
+              <textarea id="f-message" rows="4" placeholder="Tell us about the products you need, quantities, packaging preferences, and any specific certifications required."></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full">Send Inquiry</button>
+            <p class="form-note">We typically respond within 24 business hours.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- COUNTRY PANEL -->
+<div class="panel-overlay" id="panel-overlay"></div>
+<div class="country-panel" id="country-panel" role="dialog" aria-label="Country trade details">
+  <button class="panel-close" id="panel-close" aria-label="Close panel">×</button>
+  <div id="panel-content"></div>
+</div>
 
 <!-- FOOTER -->
 <footer id="footer">
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <div class="logo-icon">⬡</div>
-      <span>Export<strong>Hub</strong></span>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="#" class="footer-logo">Export<span>Hub</span></a>
+        <p>India's trusted export partner connecting quality manufacturers with international buyers since 2014.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#categories">Products</a></li>
+          <li><a href="#global-reach">Global Reach</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#">Medical Supplies</a></li>
+          <li><a href="#">Food &amp; Beverages</a></li>
+          <li><a href="#">Agriculture</a></li>
+          <li><a href="#">Industrial</a></li>
+          <li><a href="#">Electronics</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>trade@exporthub.in</li>
+          <li>+91 22 4000 0000</li>
+          <li>BKC, Mumbai 400051</li>
+          <li>India</li>
+        </ul>
+      </div>
     </div>
-    <p class="footer-tagline">India's Premier Global Trade Platform</p>
-    <div class="footer-links">
-      <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sitemap</a><a href="#">Careers</a>
+    <div class="footer-bottom">
+      <p>© 2026 ExportHub. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
     </div>
-    <p class="footer-copy">© 2026 ExportHub. All rights reserved.</p>
   </div>
 </footer>
 
-<!-- Toast -->
-<div class="toast" id="toast"></div>
+<!-- TOAST -->
+<div class="toast" id="toast" role="alert" aria-live="polite"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="main.js"></script>
